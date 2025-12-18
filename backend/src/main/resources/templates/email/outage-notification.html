@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASKİ Takip - Su Kesintisi Bildirimi</title>
+</head>
+
+<body
+    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7fa;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <tr>
+            <td>
+                <div
+                    style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
+                    <h1 style="color: white; margin: 0; font-size: 24px;">⚠️ Su Kesintisi Bildirimi</h1>
+                    <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">ASKİ Takip Sistemi</p>
+                </div>
+
+                <div
+                    style="background: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div
+                        style="background: #fff3cd; border: 1px solid #ffc107; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                        <p style="color: #856404; margin: 0; font-weight: bold;">
+                            🚰 <span th:text="${neighborhoodName}">Mahalle</span>
+                            (<span th:text="${districtName}">İlçe</span>) bölgesinde su kesintisi var!
+                        </p>
+                    </div>
+
+                    <h2 style="color: #333; margin-top: 0;" th:text="${outageTitle}">Kesinti Başlığı</h2>
+
+                    <p style="color: #555; line-height: 1.6;" th:text="${outageDescription}">
+                        Kesinti açıklaması burada yer alacak.
+                    </p>
+
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                        <table width="100%" cellpadding="5" cellspacing="0">
+                            <tr th:if="${startTime != null}">
+                                <td style="color: #666; font-weight: bold; width: 120px;">🕐 Başlangıç:</td>
+                                <td style="color: #333;" th:text="${#temporals.format(startTime, 'dd.MM.yyyy HH:mm')}">
+                                    09:00</td>
+                            </tr>
+                            <tr th:if="${endTime != null}">
+                                <td style="color: #666; font-weight: bold;">🕑 Bitiş:</td>
+                                <td style="color: #333;" th:text="${#temporals.format(endTime, 'dd.MM.yyyy HH:mm')}">
+                                    18:00</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div th:if="${sourceUrl != null}" style="text-align: center; margin: 30px 0;">
+                        <a th:href="${sourceUrl}"
+                            style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                            🔗 Duyuruyu Görüntüle
+                        </a>
+                    </div>
+
+                    <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+
+                    <p style="color: #888; font-size: 12px; text-align: center;">
+                        Bu bildirimleri almak istemiyorsanız
+                        <a th:href="${unsubscribeUrl}" style="color: #667eea;">aboneliğinizi iptal edebilirsiniz</a>.
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+# OS System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs - VS Code & IntelliJ IDEA
+.idea/
+*.iml
+.modules/
+.vscode/
+*.code-workspace
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Java / Maven (Backend)
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+/backend/target/
+/backend/*.log
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+coverage/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Project Specific
+/frontend/node_modules/
+/frontend/dist/
+/frontend/build/
+/frontend/.env*
