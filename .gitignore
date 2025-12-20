@@ -45,3 +45,5 @@ coverage/
 /frontend/dist/
 /frontend/build/
 /frontend/.env*
+
+nextsteps.md
